@@ -518,9 +518,12 @@ td.xpath {
     <b>XML Schema Definition:</b><br>
     <textarea id="schema-text" name="xml-schema" rows="25" cols="200"></textarea> <!-- change rows from 50 to 25 -->
     <br>
-    
+
     <!-- add new feature: select xsd file from local machine and show its content to schema-text area -->	
 	<input type="file" onchange="loadFile(this.files[0])">
+	<!-- move button in front of script to make them disappear in xsd schema result page -->	
+	<a class="button" href1="" id="LoadSchemaButton" onclick="LoadSchema();">Load Schema</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="button" href1="" id="SampleSchema" onclick="SampleSchema();">Sample Schema</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <br>
     <pre id="output"></pre>
     <script>
@@ -530,8 +533,7 @@ td.xpath {
       }
     </script>
 
-    <a class="button" href1="" id="LoadSchemaButton" onclick="LoadSchema();">Load Schema</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a class="button" href1="" id="SampleSchema" onclick="SampleSchema();">Sample Schema</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
     <code id="Status" style="display: none;"></code>
   </p>
 
