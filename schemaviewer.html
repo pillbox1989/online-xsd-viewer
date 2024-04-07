@@ -1048,6 +1048,7 @@ td.xpath {
           typeDescription += "  [mandatory]";
       else
       */
+      /*
       if (maxOccurs != "1")
         if (minOccurs == maxOccurs)
           typeDescription += "  [" + maxOccurs + "]";
@@ -1056,6 +1057,12 @@ td.xpath {
             typeDescription += "  [" + minOccurs + "..." + maxOccurs + "]";
           else
             typeDescription += "  [" + minOccurs + "...unbound]";  // "...&#8734;]";  // "...&infin;]";
+       */
+	// Make all of elements' occurances to show out.
+        if (maxOccurs > 0)
+            typeDescription += "  [" + minOccurs + "..." + maxOccurs + "]";
+        else
+            typeDescription += "  [" + minOccurs + "...unbound]";
     }
 
     Nodes[nodeIndex].typeDescription = typeDescription;
@@ -1934,7 +1941,7 @@ td.xpath {
   var nMinHorLineLength = 20;
   var nVerNodeDistance = 12;
 	
-	var sTextDelimeters = " .,;:-+*/=<>()&%$§\"!#'[]{}´`~^°";
+	var sTextDelimeters = " .,;:-+*/=<>()&%$Â§\"!#'[]{}Â´`~^Â°";
 
 	var nLastClickedNodeIndex;
 	var nLastExpandedNodeIndex;
