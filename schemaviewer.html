@@ -516,8 +516,20 @@ td.xpath {
 
   <p class="XSD" id="LoadSchemaParagraph">
     <b>XML Schema Definition:</b><br>
-    <textarea id="schema-text" name="xml-schema" rows="50" cols="200"></textarea>
+    <textarea id="schema-text" name="xml-schema" rows="25" cols="200"></textarea> <!-- change rows from 50 to 25 -->
     <br>
+    
+    <!-- add new feature: select xsd file from local machine and show its content to schema-text area -->	
+	<input type="file" onchange="loadFile(this.files[0])">
+    <br>
+    <pre id="output"></pre>
+    <script>
+      async function loadFile(file) {
+        let text = await file.text();
+        document.getElementById("schema-text").textContent = text;
+      }
+    </script>
+
     <a class="button" href1="" id="LoadSchemaButton" onclick="LoadSchema();">Load Schema</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a class="button" href1="" id="SampleSchema" onclick="SampleSchema();">Sample Schema</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <code id="Status" style="display: none;"></code>
@@ -1700,7 +1712,6 @@ td.xpath {
 */
   }
 
-
   function LoadSchema()
   {
 		if (rootNodeIndex)
@@ -1941,7 +1952,7 @@ td.xpath {
   var nMinHorLineLength = 20;
   var nVerNodeDistance = 12;
 	
-	var sTextDelimeters = " .,;:-+*/=<>()&%$§\"!#'[]{}´`~^°";
+	var sTextDelimeters = " .,;:-+*/=<>()&%$§\"!#'[]{}’`~^°";
 
 	var nLastClickedNodeIndex;
 	var nLastExpandedNodeIndex;
